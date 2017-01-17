@@ -6,7 +6,6 @@ def index(request):
     for item in sorted(directions_dict.keys()):
         q = Question(q_text=item[1:])
         q.save()
-        print q.id
         for x in directions_dict[item]:
             q.choice_set.create(choice_text=x[0],q_link=x[1])
     question = Question.objects.get(id=1)
